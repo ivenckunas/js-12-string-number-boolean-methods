@@ -1,6 +1,6 @@
 "use strict";
 
-const str1 = "Brown fox jumped over the lazy dog.";
+let str1 = "Brown fox jumped over the lazy dog.";
 
 // gauti zodi Brown su slice(start, end) metodu . "end" neisiskaiciuoja
 
@@ -45,3 +45,50 @@ const strCon = str1.concat(" ", "Sun ", "is ", "shinning.");
 console.log("strCon ===", strCon);
 
 // trim() nukerpa white space(space'us)
+
+// str.charAt(index) - grazina simboli toje vietoje
+
+const str3 = "sun is shinning";
+console.log(str3.charAt(4));
+
+// gauti str3 sentence case - padaryti pirma raide didziaja
+
+const str3Sentence = str3.charAt(0).toUpperCase() + str3.slice(1);
+console.log("str3Sentence ===", str3Sentence);
+
+// parasyti funkcija kuri argumentu gauna stringa ir grazina pirmaja raide padidinta.
+
+/**
+ * this function makes first letter of the sentence capitalized
+ * @param {string} str
+ * @return {string}
+ */
+function toSentenceCase(str) {
+  const senC = str.charAt(0).toUpperCase() + str.slice(1);
+  console.log("toSentenceCase ===", senC);
+  return senC;
+}
+
+const upper = toSentenceCase("pakeisk pirma i didziaja, pamirsau");
+
+// str.split(per ka padalinti) -  padalina i masyva
+
+const str1Arr = str1.split(" ");
+console.log("str1Arr ===", str1Arr);
+
+let capitalizedSentence = "";
+for (const word of str1Arr) {
+  capitalizedSentence += toSentenceCase(word) + " ";
+}
+console.log("capitalizedSentence ===", capitalizedSentence);
+
+console.log('str1Arr.join(" ") ===', str1Arr.join(" "));
+
+//  regular expression regex
+
+str1 = "Brown fox jumped over fox lazy dog.";
+
+// i - case insensitive
+// g - global
+// galima jungti ir i viena "gi"
+const sqrl = str1.replace(/FOX/gi, "squirrel");
